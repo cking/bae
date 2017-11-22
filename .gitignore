@@ -44,3 +44,12 @@ jspm_packages
 .node_repl_history
 
 .ftpconfig
+\.term
+
+\.tern-project
+
+README\.md
+
+go\.json
+
+*.zip
