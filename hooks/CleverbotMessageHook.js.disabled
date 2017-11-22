@@ -1,0 +1,24 @@
+const { EventHook } = require('kawaii/src/Structures/Base/Hooks');
+
+class CleverbotMessageHook extends EventHook {
+  constructor(...args) {
+    super(...args);
+
+    this.cbPrefix = `<@${this.plugin.client.user.id}>`;
+  }
+
+  listen(message) {
+    const content = message.content.replace(/<@!/g, '<@');
+    if (!content.startsWith(this.cbPrefix)) return;
+    const query = content.slice(this.cbPrefix.length);
+    this.plugin.cleverbot.ask(query, m => {
+      // TODO
+    });
+  }
+
+  get name() {
+    return 'messageCreate';
+  }
+}
+
+module.exports = CleverbotMessageHook;

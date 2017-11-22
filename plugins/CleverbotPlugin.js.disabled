@@ -1,0 +1,21 @@
+const { Plugin } = require('kawaii/src/Structures/Base');
+const Cleverbot = require('cleverbot.io');
+const CleverbotMessageHook = require('../hooks/CleverbotMessageHook');
+
+class CleverbotPlugin extends Plugin {
+  constructor(...args) {
+    super(...args);
+
+    this.name = 'cb';
+    this.cleverbot = new Cleverbot('VsV2xzrKnC0IfNUk', 'tmUmtQFcRwBR3VG3G214F26WiW1T1Vw0'); // TODO: Config
+    this.ready = false;
+    this.cleverbot.setNick('kawaiibot');
+    this.cleverbot.create(() => {
+      this.ready = true;
+    });
+
+    // this.hooks = [CleverbotMessageHook];
+  }
+}
+
+module.exports = CleverbotPlugin;
