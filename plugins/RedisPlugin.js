@@ -10,7 +10,7 @@ class RedisPlugin extends Plugin {
   }
   *get(id) {
     let value = yield this.redis.getAsync(id);
-    value = JSON.parse(value)
+    value = JSON.parse(value);
     return Promise.resolve(value);
   }
   *set(id, value) {

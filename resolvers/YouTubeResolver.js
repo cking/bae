@@ -118,6 +118,7 @@ class YouTubeResolver {
     if (typeof info.duration === 'undefined' && typeof info.length_seconds === 'undefined') {
       return durationConv;
     }
+    
     if (typeof info.duration !== 'undefined') {
       let durationSplit = info.duration.split(':');
       for (let i = 0; i < durationSplit.length; i++) {

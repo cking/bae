@@ -28,6 +28,10 @@ class music extends Command {
       next: {
         category: 'music',
         description: 'skips a song'
+      },
+      queue: {
+        category: 'music',
+        description: 'shows the current queue'
       }
     };
   }
@@ -104,6 +108,11 @@ class music extends Command {
       yield* queue[ctx.msg.channel.guild.id].nextSong();
       return `Skipped!`;
     } else { return `Could not skip!`; }
+  }
+  queue(ctx) {
+    if (queue[ctx.msg.channel.guild.id]) {
+      console.log(queue[ctx.msg.channel.guild.id].queue);
+    }
   }
   *execute(ctx) {
     ctx.msg.channel.createMessage({
